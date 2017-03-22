@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Elite_Home</title>
+    <link rel="stylesheet" type="text/css" href="libs/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="libs/slick/slick-theme.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/media.css" />
+    <link rel="stylesheet" href="./bundle/home.css">
+    <script src="https://www.google.com/jsapi"></script>
+    <script>
+    google.load("visualization", "1", {
+        packages: ["corechart"]
+    });
+    google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Работа', 'Цена'],
+            ['Дизайн: 3%', 3],
+            ['Отделка: 46%', 46],
+            ['Мебель: 33%', 33],
+            ['Техника: 16%', 16]
+        ]);
+        var options = {
+            title: '',
+            is3D: false,
+            slices: {
+                0: {
+                    offset: 0.1
+                },
+            },
+            colors: ['#e59845', '#7a3720', '#b8643d', '#c7935d', '#f7e4d3'],
+            width: 400,
+            height: 200,
+            pieSliceText: 'none',
+            tooltip: {
+                trigger: 'none'
+            },
+            backgroundColor: 'transparent',
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('diagramma'));
+        chart.draw(data, options);
+    }
+    </script>
+</head>
+
+<body>
+    <header class="row1">
+        <div class="header">
+            <div class="headLeft left">
+                <div class="logo">
+                    <a href="#"><img src="./test/bundle/assets/img/logo.png" alt="logo.png"></a>
+                </div>
+            </div>
+            <div class="headRight right">
+                <div class="phones right">
+                    <p>+375 (29) 502-26-66
+                        <br>+375 (29) 502-26-66</p>
+                </div>
+                <div class="phone left"><a href="#">Заказать звонок</a></div>
+                <div class="clear"></div>
+                <nav class="menu">
+                    <div class="icon"><i class="fa fa-bars"></i></div>
+                    <div class="inner">
+                        <a href="#">Главная</a>
+                        <a href="#">О компании</a>
+                        <a href="#">Контакты</a>
+                        <a href="#">Вакансии</a>
+                        <a href="#">Отзывы</a>
+                        <p></p>
+                    </div>
+                </nav>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </header>
+    <svg class="clip-svg">
+        <defs>
+            <clipPath id="polygon-clip-hexagon" clipPathUnits="objectBoundingBox">
+                <polygon points="0.5 0, 1 0.25, 1 0.75, 0.5 1, 0 0.75, 0 0.25" />
+            </clipPath>
+        </defs>
+    </svg>
+    <svg class="clip-svg1">
+        <defs>
+            <clipPath id="polygon-clip-hexagon1" clipPathUnits="objectBoundingBox">
+                <polygon points="0 0.5, 0.25 1, 0.75 1, 1 0.5, 0.75 0, 0.25 0" />
+            </clipPath>
+        </defs>
+    </svg>
+    <main class="row1">
+        <div id="mainSliderTop" class="fon">
+            <div class="text-left">
+                <h4>Дизайн интерьера в Минске</h4>
+            </div>
+            <div class="polygon-each-img-wrap">
+                <div class="text-gexagon polygon-clip-hexagon" alt="demo-clip-heptagon">
+                    <h5>Только 3 дня</h5>
+                    <p>(12.02 - 14.02)
+                        <br>
+                        <b>
+					<br>Запишитесь на консультацию <br>с дизайнером <span>за 3000 руб.</span><br>бесплатно.</b>
+                    </p>
+                    <button class="gexagonButton">Оставьте заявку</button>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="disain">
+            <h3>Некоторые наши работы</h3>
+            <div class="cherta"></div>
+            <div class="disainCont">
+                <div id="mainPhotoDisain"><img src="bundle/assets/img/PhotoDisain1.png" alt="first-slide"></div>
+                <div class="textDisain">
+                    <h5><span>№190</span> Современный дизайн</h5>
+                    <p>Дизайнеры нашей студии оформили квартиру на К.Маркса г.Минск. От старой и безжизненной резиденции не осталось и следа. Наш дизайнер Михаил Шапошников полностью пересмотрел планировку и снес практически все стены.</p>
+                </div>
+                <div class="clear"></div>
+                <div class="smallPhotoDisainCont">
+                    <div class="smallPhotoDisain" number="1"><img src="bundle/assets/img/PhotoDisain1.png" alt="first-slide"></div>
+                    <div class="smallPhotoDisain" number="2"><img src="bundle/assets/img/PhotoDisain2.png" alt="first-slide"></div>
+                    <div class="smallPhotoDisain" number="3"><img src="bundle/assets/img/PhotoDisain1.png" alt="first-slide"></div>
+                    <div class="smallPhotoDisain last" number="4"><img src="bundle/assets/img/PhotoDisain2.png" alt="first-slide"></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div id="bottomDisain">
+                <p>Дизайн интерьера квартиры в Минске на ул. Радищева 61 / <strong>площадь:</strong> 83 кв.м.</p>
+            </div>
+            <div id="disainSlaiderCont">
+                <div class="icon cross"><i class="fa fa-times"></i></div>
+                <div class="icon leftAngle"><i class="fa fa-chevron-left"></i></div>
+                <div class="icon rightAngle"><i class="fa fa-chevron-right"></i></div>
+                <div class="logo">
+                    <img src="./test/bundle/assets/img/logo.png" alt="logo.png">
+                </div>
+            </div>
+        </div>
+        <div id="befreAfter">
+            <h3>До и после</h3>
+            <div class="cherta"></div>
+            <p>Фото "до и после" наглядно показывают, как сильно могут преобразить любое помещение хорошие конcтруктивные идеи и пара интересных приемов.</p>
+            <div id="beforeSlaiderCont" class="steklo"></div>
+            <div class="photosFlex">
+                <div class="beforeSlaids steklo active">
+                    <div class="slideCherta"></div><img src="img/img-1.jpg" alt="1">
+                    <div class="zavesa"></div>
+                </div>
+                <div class="beforeSlaids steklo">
+                    <div class="slideCherta"></div><img src="img/img-2.jpg" alt="2">
+                    <div class="zavesa"></div>
+                </div>
+                <div class="beforeSlaids steklo">
+                    <div class="slideCherta"></div><img src="img/img-3.jpg" alt="3">
+                    <div class="zavesa"></div>
+                </div>
+                <div class="beforeSlaids steklo last">
+                    <div class="slideCherta"></div><img src="img/img-4.jpg" alt="4">
+                    <div class="zavesa"></div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="fourSteps" class="steklo">
+            <div class="clear"></div>
+            <div class="wrapper">
+                <div class="header">
+                    <h1><span class="bold">4 простых шага</span><br>
+                    Как создать<br>
+                    неповторимый интерьер</h1>
+                </div>
+                <div class="clear"></div>
+                <div class="step step1">
+                    <div class="first-step">
+                        <div class="red-book">1</div>
+                        <div class="red-book-right">шаг
+                            <br> Дизайнер планирует
+                            <br> пространство</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div>
+                        <div class="info-text">Это основа проекта, на этом этапе мы прорисовываем не менее 3-х вариантов планировок каждого помещения и уже из них вы можете выбрать то что понравится. Разработка плана дизайна будущего помещения предусматривает даже расположение стен и коммуникаций, что особенно важно для дома, находящегося еще в процессе постройки. Дизайн дома, выполненный по такой продуманной системе, обеспечит сокращение непредвиденных расходов на возможную перепланировку в процессе строительства.</div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="slideCont slideCont1">
+                    <div class="slider">
+                        <div class="single-item">
+                            <div class="slide"><img src="img/img-1.jpg" alt="first-slide"></div>
+                            <div class="slide"><img src="img/img-2.jpg" alt="second-slide"></div>
+                            <div class="slide"><img src="img/img-3.jpg" alt="third-slide"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step step2">
+                    <div class="second-step">
+                        <div class="red-book">2</div>
+                        <div class="red-book-right">шаг
+                            <br> Визуализатор рисует
+                            <br> интерьер в 3D</div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="row">
+                        <div>
+                            <div class="info-text">На следующем этапе разрабатываются фотореалистичные 3D-модели дизайн-проекта. Такие модели наглядно демонстрируют внешний вид будущего помещения. Они позволяют увидеть и оценить все особенности проекта. Замечания к проекту, появившиеся после рассмотрения 3D-моделей, дают возможность избежать значительных расходов на различные переделки в ходе строительных работ.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="step step3">
+                    <div class="row third-step">
+                        <div class="red-book">3</div>
+                        <div class="red-book-right">шаг
+                            <br> Технолог отрисовывает
+                            <br> Чертежи</div>
+                    </div>
+                    <div>
+                        <div>
+                            <div class="info-text">Только после согласования 3D-моделей разрабатывается полный комплект чертежей проекта. Необходимых для строителей, инженеров и контролирующих строительные работы.переделки в ходе строительных работ.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="slideCont slideCont2">
+                    <div class="slider-2">
+                        <div class="single-item-2">
+                            <div class="slide"><img src="img/img-4.jpg" alt="first-slide"></div>
+                            <div class="slide"><img src="img/img-5.jpg" alt="second-slide"></div>
+                            <div class="slide"><img src="img/img-6.jpg" alt="third-slide"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step step4">
+                    <div class="fourth-step">
+                        <div class="red-book">4</div>
+                        <div class="red-book-right">шаг
+                            <br> Cтроители начинают
+                            <br> ремонт</div>
+                    </div>
+                    <div class="info-text">Ежедневный фото-отчет со стройки. Вам больше не нужно переживать как идут дела на стройке, наш прораб будет отправлять вам ежедневный фотоотчет на e-mail.</div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        </div>
+        <div id="whatStart" class="steklo">
+            <div class="polygon-each-img-wrap">
+                <div class="text-gexagon polygon-clip-hexagon1" alt="demo-clip-heptagon">
+                    <div class="gexagonInner">
+                        <h5>С чего начать?</h5>
+                        <p>Запишитесь на кончультацию дизайнера с возможностью выезда на ваш объект всего <span>за 30 руб.</span> БЕСПЛАТНО</p>
+                        <button class="gexagonButton">Оставьте заявку</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="ourPrice" class="steklo">
+            <h3>Наши цены</h3>
+            <div class="cherta"></div>
+            <p>Если вы запланировали ремонт в своей квартире, тогда вам обязательно нужно обратиться в нашу компанию. Мы представляем ряд услуг.</p>
+            <div class="blockPrisesCont">
+                <div class="blockPrice steklo">
+                    <div class="priseIcon"><i></i></div>
+                    <h5>Планировка</h5>
+                    <p><span>С расстановкой мебели</span></p>
+                    <p class="red">100руб./м2</p>
+                </div>
+                <div class="blockPrice steklo">
+                    <div class="priseIcon"><i></i></div>
+                    <h5>3Dвизуализация</h5>
+                    <p><span>будущего интерьера</span></p>
+                    <p class="red">100руб./м2</p>
+                </div>
+                <div class="blockPrice steklo">
+                    <div class="priseIcon"><i></i></div>
+                    <h5>Строительные чертежи</h5>
+                    <p><span>полный комплект</span></p>
+                    <p class="red">100руб./м2</p>
+                </div>
+                <div class="blockPrice steklo">
+                    <div class="priseIcon"><i></i></div>
+                    <h5>Подбор материалов</h5>
+                    <p><span>и мебели интерьера</span></p>
+                    <p class="red">100руб./м2</p>
+                </div>
+            </div>
+        </div>
+        <div id="chertej" class="steklo">
+            <h3>Состав дизайн-проекта</h3>
+            <div class="cherta"></div>
+            <div id="chertejSlaiderCont" class="steklo">
+                <div class="chevronIcons angleLeft"><i class="fa fa-angle-left"></i></div>
+                <div class="chevronIcons angleRight"><i class="fa fa-angle-right"></i></div>
+                <div class="chertejSlaider steklo">
+                    <div class="chertejSlaiderRamka steklo"></div>
+                </div>
+                <div class="chertejSlaiderText steklo">
+                    <div class="chertejSlaiderTextInner">
+                        <h2><span>01.</span> Объемный чертеж объекта</h2>
+                        <p>Перед тем как приступить к разработке дизайн-проекта, специалисты должны иметь полное сведение о ней, включая информацию о размерах комнат, высоте потолков, расстоянии между дверными и оконными проемами, коммуникационных развязках и прочее. Только в данном случае дизайн-проект квартиры будет правельным.</p>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div id="disainCost" class="steklo">
+            <div class="disainCostLeft">
+                <h1>Сколько стоит</h1>
+                <h2>Дизайн интерьера</h2>
+                <p><strong>Квартира 65м<sup>2</sup> в г.Минске на ул.Карла Маркса,</strong> выполнена в современном стиле</p>
+                <p>Общая стоимость интерьера:</p>
+                <div id="diagramma" style="width: 400px; height: 200px;"></div>
+            </div>
+            <div class="disainCostRight steklo">
+                <div class="disainCostSliderRamka steklo">
+                    <div class="disainCostSliderCont steklo"></div>
+                </div>
+                <div class="photosFlex">
+                    <div class="disainCostSliderMin active">
+                        <div class="zavesa"></div>
+                        <img class="disainCostSliderBackground disainCostSliderBackground1" src="img/img-1.jpg">
+                        <div class="slideCherta"></div>
+                    </div>
+                    <div class="disainCostSliderMin">
+                        <img class="disainCostSliderBackground disainCostSliderBackground2" src="img/img-2.jpg">
+                        <div class="slideCherta"></div>
+                        <div class="zavesa"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </main>
+    <footer class="steklo">
+    </footer>
+    <script src="./bundle/home.js"></script>
+    <script src="libs/jquery/jquery-1.11.1.min.js"></script>
+    <script src="libs/bootstrap-toolkit/bootstrap-toolkit.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="libs/slick/slick.min.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+    $('.single-item').slick({
+        autoplay: true,
+        arrows: false,
+        autoplaySpeed: 1500,
+    });
+    $('.single-item-2').slick({
+        autoplay: true,
+        arrows: false,
+        autoplaySpeed: 1500,
+    });
+    </script>
+</body>
+
+</html>
