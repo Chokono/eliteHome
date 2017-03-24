@@ -63,10 +63,9 @@ function turnLeft(obj) {
         okno3.classList.add("oknoSlider2");
     }, 510);
     setTimeout(() => {
-        obj.cont.style.height;
+        obj.cont.style.height = 'auto';
     }, 520);
     enterText(data, { src: obj.imgSrc, number: obj.imgNumber });
-    console.log(1);
 };
 
 function turnRight(obj) {
@@ -91,6 +90,48 @@ function turnRight(obj) {
         obj.cont.style.height;
     }, 520);
     enterText(data, { src: obj.imgSrc, number: obj.imgNumber });
+}
+
+function disainCostLeft(obj) {
+    let okno2 = obj.cont.querySelector('.okno2');
+    let okno3 = obj.cont.querySelector('.okno3');
+    let okno4 = okno3.cloneNode(true);
+    obj.cont.style.height = okno2.offsetHeight;
+    okno3.getElementsByTagName('img')[0].setAttribute('src', obj.src);
+    okno3.setAttribute('number', obj.number);
+    setTimeout(() => {
+        okno2.style.transform = 'translateX(-100%)';
+        okno3.style.left = '0';
+        okno3.parentNode.appendChild(okno4);
+    }, 10);
+    setTimeout(() => {
+        okno2.parentNode.removeChild(okno2);
+        okno3.className = "okno okno2";
+    }, 510);
+    setTimeout(() => {
+        obj.cont.style.height = 'auto';
+    }, 520);
+}
+
+function disainCostRight(obj) {
+    let okno2 = obj.cont.querySelector('.okno2');
+    let okno1 = obj.cont.querySelector('.okno1');
+    let okno4 = okno1.cloneNode(true);
+    obj.cont.style.height = okno2.offsetHeight;
+    okno1.getElementsByTagName('img')[0].setAttribute('src', obj.src);
+    okno1.setAttribute('number', obj.number);
+    setTimeout(() => {
+        okno2.style.transform = 'translateX(100%)';
+        okno1.style.left = '0';
+        okno1.parentNode.insertBefore(okno4, okno1.parentNode.firstChild);
+    }, 10);
+    setTimeout(() => {
+        okno2.parentNode.removeChild(okno2);
+        okno1.className = "okno okno2";
+    }, 510);
+    setTimeout(() => {
+        obj.cont.style.height = 'auto';
+    }, 520);
 }
 
 function chertejLeft(obj) {
@@ -223,6 +264,7 @@ if (document.getElementById("beforeAfter")) {
         let comporison = slaides[ind].querySelector('.comporison');
         let sloyBack = createMyEl({ parent: el, className: 'sloyBack', nodeName: 'div' });
         let sloyForvard = createMyEl({ parent: el, className: 'sloyForvard', nodeName: 'div' });
+ //       let button = createMyEl({parent: sloyForvard, className: 'sloyPolz', nodeName: 'div'});
         let srcBack = comporison.getElementsByTagName('img')[0].src;
         let srcForvard = comporison.getElementsByTagName('img')[1].src;
         sloyBack.style.backgroundImage = 'url(' + srcBack + ')';
@@ -314,42 +356,77 @@ if (document.getElementById('chertej')) {
         });
     });
     document.getElementById("chertejSlaiderCont").querySelector('.angleLeft').addEventListener('click', () => {
-        switchers[number-1].classList.remove("active");
+        switchers[number - 1].classList.remove("active");
         number = parseInt(cont.querySelector('.okno2').getAttribute('number')) - 1;
         if (!document.getElementById('switchers').querySelector(`[number="${number}"]`)) {
-            number = parseInt(switchers[switchers.length-1].getAttribute('number'));
+            number = parseInt(switchers[switchers.length - 1].getAttribute('number'));
         }
-        switchers[number-1].classList.add("active");
+        switchers[number - 1].classList.add("active");
         src = document.getElementById('switchers').querySelectorAll(`[number="${number}"]`)[1].getAttribute('src');
         chertejRight({ cont: cont, number: number, src: src });
         enterTextChertej(disainProj, number);
     });
     document.getElementById("chertejSlaiderCont").querySelector('.angleRight').addEventListener('click', () => {
-        switchers[number-1].classList.remove("active");
+        switchers[number - 1].classList.remove("active");
         number = parseInt(cont.querySelector('.okno2').getAttribute('number')) + 1;
         if (!document.getElementById('switchers').querySelector(`[number="${number}"]`)) {
             number = parseInt(switchers[0].getAttribute('number'));
         }
-        switchers[number-1].classList.add("active");
+        switchers[number - 1].classList.add("active");
         src = document.getElementById('switchers').querySelectorAll(`[number="${number}"]`)[1].getAttribute('src');
         chertejLeft({ cont: cont, number: number, src: src });
         enterTextChertej(disainProj, number);
     });
 }
-if(document.getElementById("disainCost")) {
+if (document.getElementById("disainCost")) {
+    let slideImg = document.getElementById('disainCostLine').querySelectorAll('[src]');
+    let switcers = document.getElementById("disainCostLine").querySelectorAll('.disainCostSliderMin');
     let cont = document.getElementById("disainCostSliderCont");
     let slideOkno = createMyEl({ parent: cont, nodeName: 'div', className: 'okno okno1' });
     let inner = createMyEl({ parent: slideOkno, nodeName: 'div', className: 'disainCostSlider' });
-    createMyEl({ parent: slideOkno, nodeName: 'img', attr: { src: '', alt: 1 } });
+    createMyEl({ parent: inner, nodeName: 'img', attr: { src: '', alt: 1 } });
     slideOkno = slideOkno.cloneNode('true');
     slideOkno.className = 'okno okno2';
     cont.appendChild(slideOkno);
     slideOkno = slideOkno.cloneNode('true');
     slideOkno.className = 'okno okno3';
     cont.appendChild(slideOkno);
-    let number = parseInt(document.getElementById('switchers').querySelector('.active').getAttribute('number'));
-    let src = document.getElementById('switchers').querySelectorAll(`[number="${number}"]`)[1].getAttribute('src');
+    let number = parseInt(document.getElementById('disainCostLine').querySelector('.active').getAttribute('number'));
+    let src = document.getElementById('disainCostLine').querySelectorAll(`[number="${number}"]`)[1].getAttribute('src');
     cont.querySelector('.okno2').setAttribute('number', number);
     cont.querySelector('.okno2').getElementsByTagName('img')[0].setAttribute('src', src);
-    enterTextChertej(disainProj, number);
+    [].forEach.call(switcers, el => {
+        el.addEventListener('click', ev => {
+            document.getElementById('disainCostLine').querySelector(`.active`).classList.remove('active');
+            el.classList.add('active');
+            number = parseInt(el.getAttribute('number'));
+            let numberOkno = parseInt(cont.querySelector('.okno2').getAttribute('number'));
+            src = document.getElementById('disainCostLine').querySelectorAll(`[number="${number}"]`)[1].getAttribute('src');
+            if (number > numberOkno) {
+                chertejLeft({ cont: cont, number: number, src: src });
+            } else if (number < numberOkno) {
+                chertejRight({ cont: cont, number: number, src: src });
+            };
+        });
+    });
+    document.getElementById("disainCostSliderRamka").querySelector('.angleLeft').addEventListener('click', () => {
+        switcers[number - 1].classList.remove("active");
+        number = parseInt(cont.querySelector('.okno2').getAttribute('number')) - 1;
+        if (!document.getElementById('disainCostLine').querySelector(`[number="${number}"]`)) {
+            number = parseInt(switcers[switcers.length - 1].getAttribute('number'));
+        }
+        switcers[number - 1].classList.add("active");
+        src = document.getElementById('disainCostLine').querySelectorAll(`[number="${number}"]`)[1].getAttribute('src');
+        chertejRight({ cont: cont, number: number, src: src });
+    });
+    document.getElementById("disainCostSliderRamka").querySelector('.angleRight').addEventListener('click', () => {
+        switcers[number - 1].classList.remove("active");
+        number = parseInt(cont.querySelector('.okno2').getAttribute('number')) + 1;
+        if (!document.getElementById('disainCostLine').querySelector(`[number="${number}"]`)) {
+            number = parseInt(switcers[0].getAttribute('number'));
+        }
+        switcers[number - 1].classList.add("active");
+        src = document.getElementById('disainCostLine').querySelectorAll(`[number="${number}"]`)[1].getAttribute('src');
+        chertejLeft({ cont: cont, number: number, src: src });
+    });
 };

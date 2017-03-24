@@ -608,6 +608,20 @@ main {
                         border-left-color: white;
                         z-index: 6;
                     }
+                    .sloyPolz {
+                        position: absolute;
+                        height: 37px;
+                        width: 37px;
+                        border-radius: 50%;
+                        background-color: transparent;
+                        top: 50%;
+                        left: 0;
+                        transform: translate(-50%,-50%);
+                        &:hover {
+                            cursor: pointer;
+                            background-color: rgba(255,255,255, 0.5);
+                        }
+                    }
                 }
             }
         }
@@ -1194,14 +1208,43 @@ main {
             #disainCostSliderRamka {
                 background-color: white;
                 box-shadow: 0 0 10px 0 black;
-                height: 415px;
                 padding: 10px;
+                position: relative;
+                .angle {
+                    position: absolute;
+                    border-radius: 50%;
+                    border: 3px solid rgba(255,255,255,0.8);
+                    height: 35px;
+                    width: 35px;
+                    font-size: 25px;
+                    transform: translateY(-50%);
+                    top: 50%;
+                    z-index: 10;
+                    color: white;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                    .fa {
+                        opacity: 0.8;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%,-50%);
+                    }
+                }
+                .angleRight {
+                    right: 25px;
+                }
+                .angleLeft {
+                    left: 25px;
+                }
                 #disainCostSliderCont {
                     height: 100%;
                     width: 100%;
+                    position: relative;
+                    overflow: hidden;
                     .okno {
                         position: absolute;
-                        height: 100%;
                         width: 100%;
                         top: 0%;
                         overflow: hidden;
@@ -1225,7 +1268,7 @@ main {
                     }
                 }
             }
-            .photosFlex {
+            #disainCostLine {
                 .disainCostSliderMin {
                     height: 60px;
                     padding: 5px;
