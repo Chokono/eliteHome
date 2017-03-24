@@ -15,4 +15,4 @@ icon.addEventListener('click', e=>{
 		icon.classList.add('fa-bars');
 	};
 });
-require('./slaiders.js');
+require('./disain.js');

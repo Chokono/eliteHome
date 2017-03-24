@@ -11,41 +11,8 @@
     <link rel="stylesheet" href="css/media.css" />
     <link rel="stylesheet" href="./bundle/home.css">
     <script src="https://www.google.com/jsapi"></script>
-    <script>
-    google.load("visualization", "1", {
-        packages: ["corechart"]
-    });
-    google.setOnLoadCallback(drawChart);
-
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-            ['Работа', 'Цена'],
-            ['Дизайн: 3%', 3],
-            ['Отделка: 46%', 46],
-            ['Мебель: 33%', 33],
-            ['Техника: 16%', 16]
-        ]);
-        var options = {
-            title: '',
-            is3D: false,
-            slices: {
-                0: {
-                    offset: 0.1
-                },
-            },
-            colors: ['#e59845', '#7a3720', '#b8643d', '#c7935d', '#f7e4d3'],
-            width: 400,
-            height: 200,
-            pieSliceText: 'none',
-            tooltip: {
-                trigger: 'none'
-            },
-            backgroundColor: 'transparent',
-        };
-        var chart = new google.visualization.PieChart(document.getElementById('diagramma'));
-        chart.draw(data, options);
-    }
-    </script>
+    <script src="js/diagram.js"></script>
+    <script src="js/json/data.js"></script>
 </head>
 
 <body>
@@ -94,9 +61,21 @@
     </svg>
     <main class="row1">
         <div id="mainSliderTop" class="fon">
+            <div id="sliderTopCont">
+                <div id="ImagesForsTop">
+                    <img src="img/img-1.jpg" alt="first-slide" number="1">
+                    <img src="img/img-2.jpg" alt="second-slide" number="2">
+                    <img src="img/img-3.jpg" alt="third-slide" number="3">
+                </div>
+                <div class="sliderTopInner">
+                    <div class="oknoSlider oknoSlider2"><img src="" alt="1"></div>
+                    <div class="oknoSlider oknoSlider3"><img src="" alt="1"></div>
+                </div>
+            </div>
             <div class="text-left">
                 <h4>Дизайн интерьера в Минске</h4>
             </div>
+            <div class="clear1"></div>
             <div class="polygon-each-img-wrap">
                 <div class="text-gexagon polygon-clip-hexagon" alt="demo-clip-heptagon">
                     <h5>Только 3 дня</h5>
@@ -115,7 +94,7 @@
             <div class="cherta"></div>
             <div class="disainCont">
                 <div id="mainPhotoDisain"><img src="bundle/assets/img/PhotoDisain1.png" alt="first-slide"></div>
-                <div class="textDisain">
+                <div id="textDisain">
                     <h5><span>№190</span> Современный дизайн</h5>
                     <p>Дизайнеры нашей студии оформили квартиру на К.Маркса г.Минск. От старой и безжизненной резиденции не осталось и следа. Наш дизайнер Михаил Шапошников полностью пересмотрел планировку и снес практически все стены.</p>
                 </div>
@@ -132,7 +111,12 @@
             <div id="bottomDisain">
                 <p>Дизайн интерьера квартиры в Минске на ул. Радищева 61 / <strong>площадь:</strong> 83 кв.м.</p>
             </div>
-            <div id="disainSlaiderCont">
+            <div id="disainSlaiderCont" class="disainSlaiderCont">
+                <div class="sliderInner">
+                    <div class="oknoSlider oknoSlider1"><img src="" alt="1"></div>
+                    <div class="oknoSlider oknoSlider2"><img src="" alt="1"></div>
+                    <div class="oknoSlider oknoSlider3"><img src="" alt="1"></div>
+                </div>
                 <div class="icon cross"><i class="fa fa-times"></i></div>
                 <div class="icon leftAngle"><i class="fa fa-chevron-left"></i></div>
                 <div class="icon rightAngle"><i class="fa fa-chevron-right"></i></div>
@@ -141,32 +125,49 @@
                 </div>
             </div>
         </div>
-        <div id="befreAfter">
+        <div id="beforeAfter">
             <h3>До и после</h3>
             <div class="cherta"></div>
             <p>Фото "до и после" наглядно показывают, как сильно могут преобразить любое помещение хорошие конcтруктивные идеи и пара интересных приемов.</p>
-            <div id="beforeSlaiderCont" class="steklo"></div>
+            <div id="beforeSlaiderCont">
+            </div>
             <div class="photosFlex">
-                <div class="beforeSlaids steklo active">
+                <div class="beforeSlaids  active" number='0'>
                     <div class="slideCherta"></div><img src="img/img-1.jpg" alt="1">
                     <div class="zavesa"></div>
+                    <div class="comporison">
+                        <img src="img/img-1.jpg" alt="">
+                        <img src="img/img-2.jpg" alt="">
+                    </div>
                 </div>
-                <div class="beforeSlaids steklo">
+                <div class="beforeSlaids" number='1'>
                     <div class="slideCherta"></div><img src="img/img-2.jpg" alt="2">
                     <div class="zavesa"></div>
+                    <div class="comporison">
+                        <img src="img/img-2.jpg" alt="">
+                        <img src="img/img-3.jpg" alt="">
+                    </div>
                 </div>
-                <div class="beforeSlaids steklo">
+                <div class="beforeSlaids" number='2'>
                     <div class="slideCherta"></div><img src="img/img-3.jpg" alt="3">
                     <div class="zavesa"></div>
+                    <div class="comporison">
+                        <img src="img/img-3.jpg" alt="">
+                        <img src="img/img-4.jpg" alt="">
+                    </div>
                 </div>
-                <div class="beforeSlaids steklo last">
+                <div class="beforeSlaids last" number='3'>
                     <div class="slideCherta"></div><img src="img/img-4.jpg" alt="4">
                     <div class="zavesa"></div>
+                    <div class="comporison">
+                        <img src="img/img-4.jpg" alt="">
+                        <img src="img/img-5.jpg" alt="">
+                    </div>
                 </div>
             </div>
             <div class="clear"></div>
         </div>
-        <div id="fourSteps" class="steklo">
+        <div id="fourSteps">
             <div class="clear"></div>
             <div class="wrapper">
                 <div class="header">
@@ -175,6 +176,7 @@
                     неповторимый интерьер</h1>
                 </div>
                 <div class="clear"></div>
+                <div class="spetsImg1"></div>
                 <div class="step step1">
                     <div class="first-step">
                         <div class="red-book">1</div>
@@ -212,6 +214,7 @@
                     </div>
                 </div>
                 <div class="clear"></div>
+                <div class="spetsImg3"></div>
                 <div class="step step3">
                     <div class="row third-step">
                         <div class="red-book">3</div>
@@ -244,11 +247,10 @@
                     </div>
                     <div class="info-text">Ежедневный фото-отчет со стройки. Вам больше не нужно переживать как идут дела на стройке, наш прораб будет отправлять вам ежедневный фотоотчет на e-mail.</div>
                 </div>
+                <div class="clear"></div>
             </div>
-            <div class="clear"></div>
         </div>
-        </div>
-        <div id="whatStart" class="steklo">
+        <div id="whatStart">
             <div class="polygon-each-img-wrap">
                 <div class="text-gexagon polygon-clip-hexagon1" alt="demo-clip-heptagon">
                     <div class="gexagonInner">
@@ -259,66 +261,97 @@
                 </div>
             </div>
         </div>
-        <div id="ourPrice" class="steklo">
+        <div id="ourPrice">
             <h3>Наши цены</h3>
             <div class="cherta"></div>
             <p>Если вы запланировали ремонт в своей квартире, тогда вам обязательно нужно обратиться в нашу компанию. Мы представляем ряд услуг.</p>
             <div class="blockPrisesCont">
-                <div class="blockPrice steklo">
-                    <div class="priseIcon"><i></i></div>
-                    <h5>Планировка</h5>
-                    <p><span>С расстановкой мебели</span></p>
-                    <p class="red">100руб./м2</p>
+                <div class="blockPrice ">
+                    <div>
+                        <div class="priseIcon"><i></i></div>
+                        <h5>Планировка</h5>
+                        <p><span>С расстановкой мебели</span></p>
+                        <p class="red">100руб./м2</p>
+                    </div>
                 </div>
-                <div class="blockPrice steklo">
-                    <div class="priseIcon"><i></i></div>
-                    <h5>3Dвизуализация</h5>
-                    <p><span>будущего интерьера</span></p>
-                    <p class="red">100руб./м2</p>
+                <div class="blockPrice medium">
+                    <div>
+                        <div class="priseIcon"><i></i></div>
+                        <h5>3Dвизуализация</h5>
+                        <p><span>будущего интерьера</span></p>
+                        <p class="red">100руб./м2</p>
+                    </div>
                 </div>
-                <div class="blockPrice steklo">
-                    <div class="priseIcon"><i></i></div>
-                    <h5>Строительные чертежи</h5>
-                    <p><span>полный комплект</span></p>
-                    <p class="red">100руб./м2</p>
+                <div class="blockPrice ">
+                    <div>
+                        <div class="priseIcon"><i></i></div>
+                        <h5>Строительные чертежи</h5>
+                        <p><span>полный комплект</span></p>
+                        <p class="red">100руб./м2</p>
+                    </div>
                 </div>
-                <div class="blockPrice steklo">
-                    <div class="priseIcon"><i></i></div>
-                    <h5>Подбор материалов</h5>
-                    <p><span>и мебели интерьера</span></p>
-                    <p class="red">100руб./м2</p>
+                <div class="blockPrice last">
+                    <div>
+                        <div class="priseIcon"><i></i></div>
+                        <h5>Подбор материалов</h5>
+                        <p><span>и мебели интерьера</span></p>
+                        <p class="red">100руб./м2</p>
+                    </div>
                 </div>
+                <div class="clear"></div>
             </div>
+            <div class="clear"></div>
         </div>
-        <div id="chertej" class="steklo">
+        <div id="chertej">
             <h3>Состав дизайн-проекта</h3>
             <div class="cherta"></div>
-            <div id="chertejSlaiderCont" class="steklo">
+            <div class="clear"></div>
+            <div class="chertejSlaiderText">
+                <div id="chertejSlaiderTextInner">
+                    <h2></h2>
+                    <p></p>
+                </div>
+            </div>
+            <div id="chertejSlaiderCont">
                 <div class="chevronIcons angleLeft"><i class="fa fa-angle-left"></i></div>
                 <div class="chevronIcons angleRight"><i class="fa fa-angle-right"></i></div>
-                <div class="chertejSlaider steklo">
-                    <div class="chertejSlaiderRamka steklo"></div>
+                <div id="switchers">
+                    <div class="cont-swtchers">
+                        <div class="switcher active" number="1"></div>
+                        <div class="switcher" number="2"></div>
+                        <div class="switcher" number="3"></div>
+                        <div class="switcher" number="4"></div>
+                        <div class="switcher" number="5"></div>
+                        <div class="clear"></div>
+                        <img src="img/img-1.jpg" alt="1" number="1">
+                        <img src="img/img-2.jpg" alt="2" number="2">
+                        <img src="img/img-3.jpg" alt="3" number="3">
+                        <img src="img/img-4.jpg" alt="4" number="4">
+                        <img src="img/img-5.jpg" alt="5" number="5">
+                    </div>
                 </div>
-                <div class="chertejSlaiderText steklo">
-                    <div class="chertejSlaiderTextInner">
-                        <h2><span>01.</span> Объемный чертеж объекта</h2>
-                        <p>Перед тем как приступить к разработке дизайн-проекта, специалисты должны иметь полное сведение о ней, включая информацию о размерах комнат, высоте потолков, расстоянии между дверными и оконными проемами, коммуникационных развязках и прочее. Только в данном случае дизайн-проект квартиры будет правельным.</p>
+                <div class="chertejSlaider ">
+                    <div class="chertejSlaiderRamka">
+                    	<div id="chertejSlaiderInnerCont"></div>
                     </div>
                 </div>
                 <div class="clear"></div>
             </div>
         </div>
-        <div id="disainCost" class="steklo">
+        <div id="disainCost">
             <div class="disainCostLeft">
                 <h1>Сколько стоит</h1>
                 <h2>Дизайн интерьера</h2>
                 <p><strong>Квартира 65м<sup>2</sup> в г.Минске на ул.Карла Маркса,</strong> выполнена в современном стиле</p>
                 <p>Общая стоимость интерьера:</p>
-                <div id="diagramma" style="width: 400px; height: 200px;"></div>
+                <div class="diagramma">
+                    <img src="img/diagramma.png">
+                </div>
             </div>
-            <div class="disainCostRight steklo">
-                <div class="disainCostSliderRamka steklo">
-                    <div class="disainCostSliderCont steklo"></div>
+            <div class="disainCostRight">
+                <div id="disainCostSliderRamka">
+                    <div id="disainCostSliderCont">
+                    </div>
                 </div>
                 <div class="photosFlex">
                     <div class="disainCostSliderMin active">
@@ -336,7 +369,33 @@
             <div class="clear"></div>
         </div>
     </main>
-    <footer class="steklo">
+    <footer class="row1">
+        <div id="footer">
+            <div class="right footerRight">
+                <p>
+                    <br>Тел. +375 (29) 2576705
+                    <br> E-mail: elithome.gmail.com</p>
+            </div>
+            <div class="clear"></div>
+            <div class="right footerRight">
+                <br>
+                <p>Наш адрес: г.Минск ул.Карла Маркса 26,11
+                    <br> Время работы: с 9:00 до 21:00
+                    <br>
+                    <br>
+                </p>
+            </div>
+            <div class="left footerLeft">
+                <p>2015 &copy; дизайн и ккомплексный ремонт помещений
+                    <br> 2015 &copy; climstroy.by
+                    <br>
+                    <a href="#">карта сайта</a>
+                    <br>
+                    <br>
+                </p>
+            </div>
+            <div class="clear"></div>
+        </div>
     </footer>
     <script src="./bundle/home.js"></script>
     <script src="libs/jquery/jquery-1.11.1.min.js"></script>
